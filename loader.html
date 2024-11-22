@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotating Slipper Animation</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .loader-container {
+      text-align: center;
+    }
+
+    .slipper-animation {
+      width: 150px;
+      height: 150px;
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      animation: fade 1.5s infinite;
+    }
+
+    @keyframes fade {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader-container">
+    <img src="images/shoes.png" alt="Slipper" class="slipper-animation">
+    <div class="loading-text">Loading Indus Footwear...</div>
+  </div>
+</body>
+</html>
