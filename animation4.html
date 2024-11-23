@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Touch Animation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Flexbox container to center grid items */
+        .container {
+            display: flex;
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Grid container styling with flexbox */
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+            justify-content: space-around; /* Distribute items with space around */
+            gap: 20px; /* Space between items */
+            width: 80%; /* Set width of grid */
+        }
+
+        /* Grid item styling */
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            width: 45%; /* Smaller size, 45% of container width */
+            height: 250px; /* Fixed height for the rectangles */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            background-color: #333; /* Default background */
+            border: 2px solid #fff; /* Border to make it look distinct */
+            transition: transform 0.6s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        /* Container for the image */
+        .image-container {
+            position: relative;
+            width: 80%; /* 80% width of grid item */
+            height: 80%; /* 80% height of grid item */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensures image doesn't overflow */
+        }
+
+        /* Image styling */
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensure the image is fully visible */
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        /* Text styling (positioning it at the bottom) */
+        .grid-item h3 {
+            position: absolute;
+            bottom: 10px; /* Positioned at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em; /* Adjusted text size */
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Reflection effect for the grid item */
+        .grid-item::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+            transform: scaleY(-1);
+            z-index: 0;
+            filter: blur(3px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hover effect: Reveal text, reflection, zoom image */
+        .grid-item:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+        }
+
+        .grid-item:hover h3 {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2); /* Text moves to the center and scales */
+        }
+
+        .grid-item:hover::after {
+            opacity: 1; /* Reveal the reflection */
+        }
+
+        .grid-item:nth-child(1) {
+            background-color: #4a4a4a;
+        }
+        .grid-item:nth-child(2) {
+            background-color: #00c5a5;
+        }
+        .grid-item:nth-child(3) {
+            background-color: #ff6600;
+        }
+        .grid-item:nth-child(4) {
+            background-color: #8ac441;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images/gold-slipper.png" alt="Indus Gold">
+                </div>
+                <h3>Indus Gold</h3>
+            </div>
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images/lite-slipper.png" alt="Induslite">
+                </div>
+                <h3>Induslite</h3>
+            </div>
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images/safety-shoe.png" alt="Indus Safety">
+                </div>
+                <h3>Indus Safety</h3>
+            </div>
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images/slider.png" alt="Indus Prime">
+                </div>
+                <h3>Indus Prime</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

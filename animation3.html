@@ -1,0 +1,225 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Reflection</title>
+    <style>
+        /* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.grid-item {
+    position: relative;
+    text-align: center;
+    border-radius: 0px;
+    overflow: hidden;
+    height: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item img {
+    width: 40%;
+    display: block;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.grid-item:hover img {
+    transform: translateY(-10%);
+    opacity: 0.9;
+}
+
+.grid-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: -10%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1;
+}
+
+.grid-item:hover::after {
+    opacity: 1;
+    transform: translateY(10%);
+}
+
+.grid-item h3 {
+    font-size: 1.2em;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+    margin-top: 10px;
+} */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Grid container styling */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Grid item styling */
+  .grid-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px; /* Adjust as per your requirement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for the card */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  /* Text styling */
+  .grid-item h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Start centered */
+    font-size: 1.5em;
+    z-index: 2; /* Ensure text appears above the image */
+    opacity: 0; /* Initially hidden */
+    transition: all 0.5s ease; /* Smooth transition for emergence */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+  }
+  
+  /* Container for the image */
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease; /* Smooth transition for image hover effect */
+    border-radius: 15px; /* Rounded corners for the image */
+  }
+  
+  /* Hover effect */
+  .grid-item:hover {
+    transform: scale(1.05); /* Slight scale up on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+  }
+  
+  /* Image zoom effect on hover */
+  .grid-item:hover img {
+    transform: scale(1.1); /* Zoom image slightly on hover */
+  }
+  
+  /* Text emergence effect */
+  .grid-item:hover h3 {
+    opacity: 1; /* Show the text */
+    font-size: 2em; /* Increase text size */
+    transform: translate(-50%, -50%) scale(1.1); /* Smooth scaling effect */
+  }
+  
+  /* Reflection effect */
+  .grid-item img::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    height: 50%; /* Adjust the height of the reflection */
+    background: rgba(255, 255, 255, 0.4);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    transform: scaleY(-1); /* Invert the image to create a reflection */
+    z-index: 0; /* Ensure reflection is below the image */
+    filter: blur(3px); /* Optional: blur the reflection for a more realistic effect */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth appearance of the reflection */
+  }
+  
+  /* Reflection appearance on hover */
+  .grid-item:hover img::after {
+    opacity: 1; /* Reflection appears on hover */
+  }
+  
+  /* Gradient overlay effect on hover */
+  .grid-item:hover {
+    background: rgba(0, 0, 0, 0.5); /* Darker background overlay */
+    background-blend-mode: overlay; /* Blends the background for a more dynamic look */
+  }
+  
+  /* Optional: Image opacity change on hover for more emphasis */
+  .grid-item:hover img {
+    opacity: 0.8; /* Make image a bit transparent on hover */
+  }
+  
+  /* Optional: Hover color changes */
+  .grid-item:nth-child(1):hover {
+    background-color: #6f6f6f; /* Lighter shade for the first item */
+  }
+  
+  .grid-item:nth-child(2):hover {
+    background-color: #00b49e; /* Slightly lighter shade for the second item */
+  }
+  
+  .grid-item:nth-child(3):hover {
+    background-color: #e55a00; /* Slightly darker shade for the third item */
+  }
+  
+  .grid-item:nth-child(4):hover {
+    background-color: #74b637; /* Slightly darker shade for the fourth item */
+  }
+  
+  
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item" style="background-color: #4a4a4a;">
+            <img src="images/gold-slipper.png" alt="Indus Gold">
+            <h3>Indus Gold</h3>
+        </div>
+        <div class="grid-item" style="background-color: #00c5a5;">
+            <img src="images/lite-slipper.png" alt="Induslite">
+            <h3>Induslite</h3>
+        </div>
+        <div class="grid-item" style="background-color: #ff6600;">
+            <img src="images/safety-shoe.png" alt="Indus Safety">
+            <h3>Indus Safety</h3>
+        </div>
+        <div class="grid-item" style="background-color: #8ac441;">
+            <img src="images/slider.png" alt="Indus Prime">
+            <h3>Indus Prime</h3>
+        </div>
+    </div>
+</body>
+</html>
