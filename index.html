@@ -1,41 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Indus Footwear</title>
-  <link rel="icon" type="image/x-icon" href="/images/indusfavicon.ico">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo & Banner Animation</title>
+    <style>
+        /* Logo Styles */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            animation: fadeInLogo 2s ease-out forwards;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            opacity: 0;
+            position: relative;
+            animation: drawLogo 2s ease-out forwards;
+        }
+
+        @keyframes drawLogo {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            100% {
+                width: 200px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInLogo {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+
+
+
+
+        @keyframes slideUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-  <!-- Opening Animation Section -->
-  <div id="animation-container">
-    <div id="logo-container">
-      <img src="images/indus-logo.png.png" alt="Indus Footwear Logo" id="logo">
-      <p id="tagline">Welcome to Indus Footwear – Empowering Your Business</p>
+    <!-- Logo -->
+    <div class="logo-container" id="logoContainer">
+        <img src="images/indus-logo.png.png" class="logo" id="logo" alt="Logo">
     </div>
-    <div id="categories">
-      <div class="category" id="indus-gold">
-        <img src="images/gold-slipper.png" alt="Indus Gold">
-        <p>Crafted for Excellence – Indus Gold</p>
-      </div>
-      <div class="category" id="indus-lite">
-        <img src="images/lite-slipper.png" alt="Indus Lite">
-        <p>Durable & Lightweight – IndusLite</p>
-      </div>
-      <div class="category" id="indus-safety">
-        <img src="images/safety-shoe.png" alt="Indus Safety">
-        <p>Built for Protection – Indus Safety</p>
-      </div>
-      <div class="category" id="indus-prime">
-        <img src="images/slider.png" alt="Indus Prime">
-        <p>Stylish & Dynamic – Indus Prime</p>
-      </div>
-    </div>
-    <button id="enter-portal">Explore Now</button>
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="script.js"></script>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Loader with Navigation & Banner</title>
+        <style>
+            /* Loader Styles */
+            .loader {
+                border: 5px solid #f3f3f3;
+                border-top: 5px solid #3498db;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                animation: spin 2s linear infinite;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+    
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+    
+            /* Top Left Navigation with Logo */
+            .top-left-nav {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                display: flex;
+                align-items: center;
+                z-index: 10;
+            }
+    
+            .logo {
+                width: 50px;
+                height: auto;
+                margin-right: 20px;
+            }
+            .logo1 {
+                width: 70px;
+                height: auto;
+                margin-right: 20px;
+            }
+    
+            .top-left-nav button {
+                background-color: transparent;
+                color: rgb(0, 0, 0);
+                border: none;
+                font-size: 1rem;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+    
+            /* Banner Styles */
+/* Banner Styles */
+.banner {
+    position: fixed;
+    top: 100%; /* Start the banner from below the screen */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("images/web\ slider\ banner\ \(1\).png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: none;
+    animation: slideInFromBottom 1s ease-out forwards; /* Slide up animation */
+}
+
+/* Banner slide-in animation */
+@keyframes slideInFromBottom {
+    0% {
+        top: 100%; /* Banner starts below the viewport */
+    }
+    100% {
+        top: 0; /* Banner reaches its final position */
+    }
+}
+
+    
+            /* Centered Banner Content */
+            .banner-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: rgb(0, 200, 255);
+                text-align: center;
+            }
+    
+            .banner h1 {
+                font-size: 3rem;
+                margin: 0;
+            }
+    
+            .banner p {
+                font-size: 1.5rem;
+                margin-top: 10px;
+            }
+    
+            .nav-buttons {
+                margin-top: 20px;
+            }
+    
+            .nav-buttons button {
+                padding: 10px 20px;
+                margin: 5px;
+                background-color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+    
+        </style>
+    </head>
+    <body>
+    
+
+    
+        <!-- Top Left Navigation with Logo -->
+        <div class="top-left-nav" id="topNav">
+            <img src="images/indus-logo.png.png" class="logo1" alt="Logo">
+            <button>Home</button>
+            <button>About</button>
+            <button>Contact</button>
+        </div>
+    
+        <!-- Banner -->
+        <div class="banner" id="banner">
+            <div class="banner-content">
+                <h1>Welcome to Our Website</h1>
+                <p>Experience something amazing!</p>
+                <div class="nav-buttons">
+                    <button>Learn More</button>
+                    <button>Contact Us</button>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';  // Hide loader
+        document.getElementById('banner').style.display = 'block';  // Show banner
+
+        // After the banner slides in, show the top navigation
+        setTimeout(function() {
+            document.getElementById('topNav').style.display = 'flex';  // Show top navigation
+        }, 1000);  // Adjust this delay based on your banner slide-in time
+    }, 1000);  // Delay for loader to finish
+};
+</script>
+    
+    </body>
+    </html>
+    
+    <script>
+        // Wait for the logo animation to finish, then show the banner
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('logoContainer').style.opacity = '1';  // Show logo animation
+
+                setTimeout(function() {
+                    document.getElementById('banner').style.display = 'block';  // Show banner after logo
+                }, 2000); // Wait for logo animation to finish before showing banner
+            }, 2000);  // Match this delay to the logo animation time
+        };
+    </script>
 </body>
 </html>
